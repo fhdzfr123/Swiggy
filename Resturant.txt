@@ -1,0 +1,174 @@
+
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+
+void main() {
+  runApp(new MaterialApp(home: Fiteat()));
+}
+
+class Fiteat extends StatefulWidget {
+  @override
+  _FiteatState createState() => _FiteatState();
+}
+
+class _FiteatState extends State<Fiteat> {
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: ListView(
+        children: <Widget>[
+          Container(
+            width: MediaQuery.of(context).size.width*0.2,
+            height: MediaQuery.of(context).size.height*0.1,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Icon(Icons.arrow_back),
+                Container(
+                  child: Row(
+                    children: <Widget>[
+                      Icon(Icons.bookmark_border),
+                      Padding(
+                        padding: EdgeInsets.only(left: 20),
+                        child: Icon(Icons.search),
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+
+          Container(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text("Burger Farm",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                    Text("Fast Food, American",style: TextStyle(color: Colors.grey.shade700)),
+                    Padding(padding: EdgeInsets.symmetric(horizontal: 16,vertical: 12),child: Divider(thickness: 0.5,color: Colors.grey.shade700,),),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Column(
+                          children: <Widget>[
+                            Text("* 4.4",style: TextStyle(fontWeight: FontWeight.bold),),
+                            Text("100+ ratings",style: TextStyle(fontSize: 12),),
+                          ],
+                        ),
+                        Column(
+                          children: <Widget>[
+                            Text("30 mins",style: TextStyle(fontWeight: FontWeight.bold),),
+                            Text("Delivery Time",style: TextStyle(fontSize: 12),),
+                          ],
+                        ),
+                        Column(
+                          children: <Widget>[
+                            Text("\$300",style: TextStyle(fontWeight: FontWeight.bold),),
+                            Text("For Two",style: TextStyle(fontSize: 12),),
+                          ],
+                        ),
+                      ],
+                    ),
+                    Padding(padding: EdgeInsets.symmetric(horizontal: 16,vertical: 12),child: Divider(thickness: 0.5,color: Colors.grey.shade700,),),
+
+                    Row(
+                      children: <Widget>[
+                        Padding(padding: EdgeInsets.only(right: 16),
+                          child: Icon(Icons.ac_unit,color: Colors.brown,size: 16,),
+                        ),
+
+                        Container(
+                          child: Expanded(
+                            child: Text("20% off upto \$200 with city bank cards, once per week | Use code 394gg4"),
+                          ),
+                        )
+                      ],),
+                  ],
+                ),
+              )
+          ),
+          Padding(padding: EdgeInsets.symmetric(vertical: 12),child: Divider(thickness: 4,color: Colors.grey.shade200,),),
+          Padding(padding: EdgeInsets.symmetric(horizontal: 16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text("Pure Veg",style: TextStyle(fontWeight: FontWeight.bold),),
+                Padding(padding: EdgeInsets.symmetric(vertical: 12),child: Divider(thickness: 0.5,color: Colors.grey.shade700,),),
+                Text("Recommended",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+
+              ],
+            ),
+          ),
+          GridView.builder(
+            physics: ClampingScrollPhysics(),
+              shrinkWrap: true,
+              itemCount: 6,
+              gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+
+              itemBuilder: (context,index){
+                return Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 12,vertical: 12),
+                  child: Container(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Container(
+                          width: MediaQuery.of(context).size.width,
+                          height:MediaQuery.of(context).size.height*0.12,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage("assets/Images/pic2.jpg"),
+                              fit: BoxFit.cover,
+                            )
+                          ),
+                        ),
+                        Padding(padding: EdgeInsets.only(top: 10),child: Text("Vegetables",style: TextStyle(fontWeight: FontWeight.bold),),),
+                        Padding(
+                          padding: EdgeInsets.only(top: 5,right: 5),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              Text("\$70"),
+                              Container(
+                                height: MediaQuery.of(context).size.height*0.05,
+                                width: MediaQuery.of(context).size.width*0.2,
+                                decoration: BoxDecoration(
+                                    border: Border.all(width:0.3,color: Colors.green.shade700)
+                                ),
+                                child:  FlatButton(
+                                  child: Text("ADD",style: TextStyle(fontSize: 12,color: Colors.green),),
+                                  onPressed: (){},
+                                ),
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ) ;
+                }
+          ),
+          Container(
+            //width: MediaQuery.of(context).size.width*0.3,
+            height: MediaQuery.of(context).size.height*0.3,
+            color: Colors.grey.shade200,
+            child:Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16,vertical: 16),
+              child: Text("License No. 123456"),
+            )
+          )
+        ],
+      ),
+    );
+  }
+}
+
+
+
+
+
